@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#0f172a" />
+    <title>Team Workspace</title>
+    <link rel="manifest" href="/manifest.webmanifest" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <div>
+        <h1>Team Workspace</h1>
+        <p class="subtitle">Рабочий MVP: чат, задачи, календарь, почтовые настройки</p>
+      </div>
+      <div class="topbar-actions">
+        <button id="installBtn" class="install-btn" hidden>Установить</button>
+        <button id="resetBtn" class="danger-btn">Сбросить данные</button>
+      </div>
+    </header>
+
+    <main class="app-layout">
+      <nav class="module-nav" aria-label="Навигация по модулям">
+        <button class="tab-btn active" data-tab="messenger">💬 Мессенджер</button>
+        <button class="tab-btn" data-tab="tasks">✅ Задачи</button>
+        <button class="tab-btn" data-tab="calendar">📅 Календарь</button>
+        <button class="tab-btn" data-tab="mail">✉️ Почта Beget</button>
+      </nav>
+
+      <section class="workspace">
+        <article class="panel active" id="panel-messenger">
+          <div class="panel-head">
+            <h2>Мессенджер</h2>
+            <span class="muted">Локальный real-time MVP (сохранение в браузере)</span>
+          </div>
+          <div id="messagesList" class="list messages"></div>
+          <form id="messageForm" class="inline-form">
+            <input id="messageAuthor" required maxlength="40" placeholder="Ваше имя" />
+            <input id="messageText" required maxlength="500" placeholder="Сообщение" />
+            <button type="submit">Отправить</button>
+          </form>
+        </article>
+
+        <article class="panel" id="panel-tasks">
+          <div class="panel-head">
+            <h2>Органайзер задач</h2>
+            <span class="muted">Создание, смена статуса, удаление</span>
+          </div>
+          <form id="taskForm" class="inline-form two-rows">
+            <input id="taskTitle" required maxlength="120" placeholder="Название задачи" />
+            <input id="taskAssignee" maxlength="60" placeholder="Ответственный" />
+            <input id="taskDue" type="date" />
+            <select id="taskPriority">
+              <option value="low">Low</option>
+              <option value="medium" selected>Medium</option>
+              <option value="high">High</option>
+              <option value="critical">Critical</option>
+            </select>
+            <button type="submit">Добавить</button>
+          </form>
+          <div id="tasksList" class="list"></div>
+        </article>
+
+        <article class="panel" id="panel-calendar">
+          <div class="panel-head">
+            <h2>Календарь</h2>
+            <span class="muted">События команды с датой и временем</span>
+          </div>
+          <form id="eventForm" class="inline-form two-rows">
+            <input id="eventTitle" required maxlength="120" placeholder="Название события" />
+            <input id="eventStart" required type="datetime-local" />
+            <input id="eventEnd" required type="datetime-local" />
+            <input id="eventLocation" maxlength="120" placeholder="Место / ссылка" />
+            <button type="submit">Добавить событие</button>
+          </form>
+          <div id="eventsList" class="list"></div>
+        </article>
+
+        <article class="panel" id="panel-mail">
+          <div class="panel-head">
+            <h2>Почта Beget</h2>
+            <span class="muted">Сохраняет рабочие SMTP/IMAP настройки для команды</span>
+          </div>
+          <form id="mailForm" class="mail-grid">
+            <label>Почта
+              <input id="mailEmail" type="email" required placeholder="team@your-domain.ru" />
+            </label>
+            <label>Логин
+              <input id="mailLogin" required placeholder="team@your-domain.ru" />
+            </label>
+            <label>Пароль
+              <input id="mailPassword" type="password" required placeholder="••••••••" />
+            </label>
+
+            <label>Incoming host
+              <input id="imapHost" value="imap.beget.com" required />
+            </label>
+            <label>Incoming port
+              <input id="imapPort" type="number" value="993" required />
+            </label>
+            <label>Incoming security
+              <select id="imapSecurity">
+                <option value="ssl" selected>SSL/TLS</option>
+                <option value="starttls">STARTTLS</option>
+                <option value="none">None</option>
+              </select>
+            </label>
+
+            <label>Outgoing host
+              <input id="smtpHost" value="smtp.beget.com" required />
+            </label>
+            <label>Outgoing port
+              <input id="smtpPort" type="number" value="465" required />
+            </label>
+            <label>Outgoing security
+              <select id="smtpSecurity">
+                <option value="ssl" selected>SSL/TLS</option>
+                <option value="starttls">STARTTLS</option>
+                <option value="none">None</option>
+              </select>
+            </label>
+
+            <button type="submit">Сохранить настройки</button>
+          </form>
+          <div id="mailSummary" class="mail-summary"></div>
+        </article>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <span id="status">Инициализация...</span>
+    </footer>
+
+    <script src="/app.js" defer></script>
+  </body>
+</html>
