@@ -39,6 +39,7 @@ python3 -m http.server 4173
 - `docs/supabase-setup.md` — как поднять БД в Supabase.
 - `docs/roadmap.md` — этапы развития.
 - `supabase/schema.sql` — SQL-схема для Supabase.
+- `docs/github-publish.md` — инструкция, как выложить проект в GitHub.
 
 ## Следующий шаг
 
