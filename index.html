@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#0f172a" />
+    <title>Team Workspace</title>
+    <link rel="manifest" href="/manifest.webmanifest" />
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <div>
+        <h1>Team Workspace</h1>
+        <p class="subtitle">Единое пространство: чат, задачи, календарь, почта</p>
+      </div>
+      <button id="installBtn" class="install-btn" hidden>Установить приложение</button>
+    </header>
+
+    <main class="grid">
+      <section class="card">
+        <h2>Мессенджер</h2>
+        <p>Каналы, треды, быстрые реакции, вложения, поиск и уведомления.</p>
+        <ul>
+          <li>Роли и права доступа</li>
+          <li>E2E-шифрование (roadmap)</li>
+          <li>Онлайн-статусы и read receipts</li>
+        </ul>
+      </section>
+
+      <section class="card">
+        <h2>Органайзер задач</h2>
+        <p>Спринты, приоритеты, дедлайны, статусы и персональные доски.</p>
+        <ul>
+          <li>Kanban + List view</li>
+          <li>Связь задач с чатами</li>
+          <li>SLA и автоматизации</li>
+        </ul>
+      </section>
+
+      <section class="card">
+        <h2>Календарь</h2>
+        <p>Командные и личные события, напоминания, синхронизация, таймзоны.</p>
+        <ul>
+          <li>Day/Week/Month режимы</li>
+          <li>Инвайты и RSVP</li>
+          <li>Связь с задачами и созвонами</li>
+        </ul>
+      </section>
+
+      <section class="card">
+        <h2>Почтовая интеграция</h2>
+        <p>Уведомления из почты в реальном времени + маршрутизация в модули.</p>
+        <ul>
+          <li>OAuth2 + Webhooks/IMAP polling</li>
+          <li>Фильтры и правила маршрутизации</li>
+          <li>Создание задач/событий из писем</li>
+        </ul>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <span id="status">PWA инициализируется…</span>
+    </footer>
+
+    <script src="/app.js" defer></script>
+  </body>
+</html>
